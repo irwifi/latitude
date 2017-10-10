@@ -14,6 +14,55 @@
     </div>
   </div>
   
+  <div class="main_body">
+    <div class="radio">
+      <div class="radio_item">
+        <input type="radio" name="degree"> Decimal Degrees
+      </div>
+      
+      <div class="radio_item">
+        <input type="radio" name="minute"> Degrees Decimal Minutes
+      </div>
+      
+      <div class="radio_item">
+        <input type="radio" name="second"> Degrees Minutes Seconds
+      </div>
+    </div>
+    
+    <div class="lat_long">
+      <div class="latitude">
+        <span class="lat_long_label">Latitude</span>
+        <input type="text" name="lat_deg">
+        <span class="unit degree">&deg;</span>
+        <input type="text" name="lat_min"> 
+        <span class="unit">'</span>
+        <input type="text" name="lat_sec"> 
+        <span class="unit">"</span>
+
+        <select>
+          <option>N</option>
+          <option>S</option>
+        </select>
+      </div>
+      
+      <div class="longitude">
+        <span class="lat_long_label">Longitude</span>
+        <input type="text" name="long_deg"> 
+        <span class="unit degree">&deg;</span>
+        <input type="text" name="long_min">
+        <span class="unit">'</span>
+        <input type="text" name="long_sec"> 
+        <span class="unit">"</span>
+
+        <select>
+          <option>W</option>
+          <option>E</option>
+        </select>
+
+      </div>
+    </div>
+  </div>
+  
   <script src="//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="./public/js/index.js"></script>
 </body>

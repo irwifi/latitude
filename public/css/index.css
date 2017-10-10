@@ -2,6 +2,10 @@
   font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
 }
 
+.hidden {
+  display: none;
+}
+
 .main_container {
   max-width: 900px;
   margin: 0 auto;
@@ -13,4 +17,82 @@
   text-align: center;
   font-size: 32px;
   color: #2a2a3c;
+}
+
+.main_body {
+  display: block;
+  height: 450px;
+  width: 1020px;
+  margin: 20px auto;
+  border: 2px solid #CCC;
+  padding: 14px;
+  border-radius:  7px;
+}
+
+.radio {
+  display: block;
+  height: 60px;
+  line-height: 55px;
+  width: 900px;
+  margin: 30px auto;
+  padding: 10px 0;
+  border: 3px solid #ff9f40;
+  color: #666;
+  border-radius: 8px;
+  background: #eafbff;
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.radio_item {
+  display: inline-block;
+  margin: 0 20px;
+}
+
+.lat_long {
+  display: block;
+  width: 800px;
+  height: 200px;
+  margin: 80px auto;
+}
+
+.latitude, .longitude {
+  display: block;
+  margin: 20px auto;
+  text-align: center;
+}
+
+.lat_long_label {
+  display: inline-block;
+  width: 180px;
+  height: 40px;
+  text-align: left;
+  font-size: 32px;
+    color: #444;
+  vertical-align: middle;
+  line-height: 45px;
+}
+
+.lat_long input {
+  width: 80px;
+  height: 40px;
+  margin-left: 8px;
+  font-size: 24px;
+  text-align: center;
+}
+
+.lat_long select {
+  width: 60px;
+  height: 40px;
+  margin-left: 16px;
+  font-size: 24px;
+}
+
+.unit {
+  font-size: 24px;
+}
+
+.degree {
+  font-size:32px;
 }
