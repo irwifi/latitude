@@ -3,67 +3,105 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>Latitude</title>
-    <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
     <link rel="stylesheet" type="text/css" href="./public/css/index.css">
 </head>
 
 <body>
-  <div class="main_container">
-    <div class="header">
-      <h1>Latitude Longitude</h1>
+  <div class="wrapper">
+    <div class="main_container">
+      <div class="header">
+        <h1>Latitude Longitude</h1>
+      </div>
+
+      <div class="main_body">
+        <div class="radio">
+          <div class="radio_item">
+            <input type="radio" name="degree" value="degree"> Decimal Degrees
+          </div>
+
+          <div class="radio_item active">
+            <input type="radio" name="degree" value="minute" checked> Degrees Decimal Minutes
+          </div>
+
+          <div class="radio_item">
+            <input type="radio" name="degree" value="second"> Degrees Minutes Seconds
+          </div>
+        </div>
+
+        <div class="lat_long">
+          <div class="err_box"></div>
+          
+          <div class="latitude">
+            <span class="lat_long_label">Latitude</span>
+            <input type="text" name="lat_deg">
+            <span class="unit degree">&deg;</span>
+
+            <span class="minute_block">
+              <input type="text" name="lat_min">
+              <span class="unit">'</span>
+            </span>
+
+            <span class="second_block hidden">
+              <input type="text" name="lat_sec"> 
+              <span class="unit">"</span>
+            </span>
+
+            <select>
+              <option>N</option>
+              <option>S</option>
+            </select>
+          </div>
+
+          <div class="longitude">
+            <span class="lat_long_label">Longitude</span>
+            <input type="text" name="long_deg"> 
+            <span class="unit degree">&deg;</span>
+
+            <span class="minute_block">
+              <input type="text" name="long_min">
+              <span class="unit">'</span>
+            </span>
+
+            <span class="second_block hidden">
+              <input type="text" name="long_sec"> 
+              <span class="unit">"</span>
+            </span>
+
+            <select>
+              <option>W</option>
+              <option>E</option>
+            </select>
+
+          </div>
+
+          <div class="submit">
+            Submit
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
-  
-  <div class="main_body">
-    <div class="radio">
-      <div class="radio_item">
-        <input type="radio" name="degree"> Decimal Degrees
-      </div>
-      
-      <div class="radio_item">
-        <input type="radio" name="minute"> Degrees Decimal Minutes
-      </div>
-      
-      <div class="radio_item">
-        <input type="radio" name="second"> Degrees Minutes Seconds
-      </div>
-    </div>
+
+    <div class='overlay'></div>
     
-    <div class="lat_long">
-      <div class="latitude">
-        <span class="lat_long_label">Latitude</span>
-        <input type="text" name="lat_deg">
-        <span class="unit degree">&deg;</span>
-        <input type="text" name="lat_min"> 
-        <span class="unit">'</span>
-        <input type="text" name="lat_sec"> 
-        <span class="unit">"</span>
-
-        <select>
-          <option>N</option>
-          <option>S</option>
-        </select>
-      </div>
-      
-      <div class="longitude">
-        <span class="lat_long_label">Longitude</span>
-        <input type="text" name="long_deg"> 
-        <span class="unit degree">&deg;</span>
-        <input type="text" name="long_min">
-        <span class="unit">'</span>
-        <input type="text" name="long_sec"> 
-        <span class="unit">"</span>
-
-        <select>
-          <option>W</option>
-          <option>E</option>
-        </select>
-
+    <div class="result_wrapper">
+      <div class="result_box">
+        <div class="result_close">Close</div>
+        
+        <div class="result_lat">
+          <span class="result_label">Latitude</span>
+          <span class="result_value">88.12345</span>
+        </div>
+        
+        <div class="result_long">
+          <span class="result_label">Longitude</span>
+          <span class="result_value">13.12345</span>
+        </div>
       </div>
     </div>
   </div>
   
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
   <script src="./public/js/index.js"></script>
 </body>
 </html>
