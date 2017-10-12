@@ -20,7 +20,7 @@ function validate_decimal(element, chr) {
       if((element.attr("name") === "lat_deg" || element.attr("name") === "long_deg") && chr === ".") {return false;}
       break;
     case "second":
-      if(chr === ".") {return false;}
+      if(chr === "." && (element.attr("name") !== "lat_sec" && element.attr("name") !== "long_sec") ) {return false;}
       break;
   }
 }
@@ -60,20 +60,26 @@ function degree_switch() {
   }
 }
 
+function to_fixed(num) {
+  var fixed =6;
+  var re = new RegExp('^-?\\d+(?:\.\\d{0,' + (fixed || -1) + '})?');
+  return num.toString().match(re)[0];
+}
+
 function deg_to_min() {
   var lat_deg_decimal, long_deg_decimal;
   lat_deg_decimal = parseFloat($(".latitude input[name='lat_deg']").val()).toString().split(".");
   long_deg_decimal = parseFloat($(".longitude input[name='long_deg']").val()).toString().split(".");
-  lat_deg_decimal = parseInt(lat_deg_decimal[1]);
-  long_deg_decimal = parseInt(long_deg_decimal[1]);
+  lat_deg_decimal = parseFloat($(".latitude input[name='lat_deg']").val()) - parseInt(lat_deg_decimal[0]);
+  long_deg_decimal = parseFloat($(".longitude input[name='long_deg']").val()) - parseInt(long_deg_decimal[0]);
 
   if(lat_deg_decimal > 0) {
     $(".latitude input[name='lat_deg']").val(parseInt($(".latitude input[name='lat_deg']").val()));
-    $(".latitude input[name='lat_min']").val((parseFloat("0." + lat_deg_decimal.toString()) * 60).toFixed(2));
+    $(".latitude input[name='lat_min']").val(to_fixed(lat_deg_decimal * 60));
   }
   if(long_deg_decimal > 0) {
     $(".longitude input[name='long_deg']").val(parseInt($(".longitude input[name='long_deg']").val()));
-    $(".longitude input[name='long_min']").val((parseFloat("0." + long_deg_decimal.toString()) * 60).toFixed(2));
+    $(".longitude input[name='long_min']").val(to_fixed(long_deg_decimal * 60));
   }
 }
 
@@ -81,34 +87,34 @@ function min_to_sec() {
   var lat_min_decimal, long_min_decimal;
   lat_min_decimal = parseFloat($(".latitude input[name='lat_min']").val()).toString().split(".");
   long_min_decimal = parseFloat($(".longitude input[name='long_min']").val()).toString().split(".");
-  lat_min_decimal = parseInt(lat_min_decimal[1]);
-  long_min_decimal = parseInt(long_min_decimal[1]);
+  lat_min_decimal = parseFloat($(".latitude input[name='lat_min']").val()) - parseInt(lat_min_decimal[0]);
+  long_min_decimal = parseFloat($(".longitude input[name='long_min']").val()) - parseInt(long_min_decimal[0]);
 
   if(lat_min_decimal > 0) {
     $(".latitude input[name='lat_min']").val(parseInt($(".latitude input[name='lat_min']").val()));
-    $(".latitude input[name='lat_sec']").val(parseInt(parseFloat("0." + lat_min_decimal.toString()) * 60));
+    $(".latitude input[name='lat_sec']").val(to_fixed(lat_min_decimal * 60));
   }
   if(long_min_decimal > 0) {
     $(".longitude input[name='long_min']").val(parseInt($(".longitude input[name='long_min']").val()));
-    $(".longitude input[name='long_sec']").val(parseInt(parseFloat("0." + long_min_decimal.toString()) * 60));
+    $(".longitude input[name='long_sec']").val(to_fixed(long_min_decimal * 60));
   }
 }
 
 function sec_to_min() {
-  if(parseInt($(".latitude input[name='lat_sec']").val()) > 0) {
-    $(".latitude input[name='lat_min']").val((parseFloat($(".latitude input[name='lat_min']").val()) + parseInt($(".latitude input[name='lat_sec']").val()) / 60).toFixed(2));
+  if(parseFloat($(".latitude input[name='lat_sec']").val()) > 0) {
+    $(".latitude input[name='lat_min']").val(to_fixed((parseFloat($(".latitude input[name='lat_min']").val()) || 0) + parseFloat($(".latitude input[name='lat_sec']").val()) / 60));
   }
-  if(parseInt($(".longitude input[name='long_sec']").val()) > 0) {
-    $(".longitude input[name='long_min']").val((parseFloat($(".longitude input[name='long_min']").val()) + parseInt($(".longitude input[name='long_sec']").val()) / 60).toFixed(2));
+  if(parseFloat($(".longitude input[name='long_sec']").val()) > 0) {
+    $(".longitude input[name='long_min']").val(to_fixed((parseFloat($(".longitude input[name='long_min']").val()) || 0) + parseFloat($(".longitude input[name='long_sec']").val()) / 60));
   }
 }
 
 function min_to_deg() {
   if(parseFloat($(".latitude input[name='lat_min']").val()) > 0) {
-    $(".latitude input[name='lat_deg']").val((parseFloat($(".latitude input[name='lat_deg']").val()) + parseFloat($(".latitude input[name='lat_min']").val()) / 60).toFixed(2));
+    $(".latitude input[name='lat_deg']").val(to_fixed((parseFloat($(".latitude input[name='lat_deg']").val()) || 0) + parseFloat($(".latitude input[name='lat_min']").val()) / 60));
   }
   if(parseFloat($(".longitude input[name='long_min']").val()) > 0) {
-    $(".longitude input[name='long_deg']").val((parseFloat($(".longitude input[name='long_deg']").val()) + parseFloat($(".longitude input[name='long_min']").val()) / 60).toFixed(2));
+    $(".longitude input[name='long_deg']").val(to_fixed((parseFloat($(".longitude input[name='long_deg']").val()) || 0) + parseFloat($(".longitude input[name='long_min']").val()) / 60));
   }
 }
 
@@ -117,7 +123,7 @@ function submit() {
   $(".err_box").hide();
   
   if(isNaN(parseFloat($(".latitude input[name='lat_deg']").val())) || $(".latitude input[name='lat_deg']").val() > 90) {err = err + "<li>Please Enter Valid Latitude Degrees (0 to 90)</li>";}
-  if(isNaN(parseFloat($(".longitude input[name='long_deg']").val())) || $(".longitude input[name='long_deg']").val() > 90) {err = err + "<li>Please Enter Valid Longitude Degrees (0 to 90)</li>";}
+  if(isNaN(parseFloat($(".longitude input[name='long_deg']").val())) || $(".longitude input[name='long_deg']").val() > 180) {err = err + "<li>Please Enter Valid Longitude Degrees (0 to 180)</li>";}
   if($(".latitude input[name='lat_min']").val() > 60) {err = err + "<li>Please Enter Valid Latitude Minutes (0 to 60)</li>";}
   if($(".longitude input[name='long_min']").val() > 60) {err = err + "<li>Please Enter Valid Longitude Minutes (0 to 60)</li>";}
   if($(".latitude input[name='lat_sec']").val() > 60) {err = err + "<li>Please Enter Valid Latitude Seconds (0 to 60)</li>";}

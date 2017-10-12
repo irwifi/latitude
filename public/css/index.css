@@ -92,7 +92,7 @@
 }
 
 .lat_long input {
-  width: 100px;
+  width: 140px;
   height: 40px;
   margin-left: 8px;
   font-size: 20px;
@@ -214,6 +214,7 @@
 
 .result_value {
   display: inline-block;
+  width:240px;
   height: 45px;
   text-align: left;
   font-size: 40px;
@@ -221,4 +222,9 @@
     color: #222;
   vertical-align: middle;
   line-height: 50px; 
+  text-align: right;
+}
+
+.result_unit {
+  font-size: 40px;
 }
