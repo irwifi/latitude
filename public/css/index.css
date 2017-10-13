@@ -1,230 +1,238 @@
-* {
-  font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
-}
-
-.hidden {
-  display: none;
-}
-
-.wrapper {
-  position: relative;
-}
-
-.main_container {
-  position: relative;
-  margin: 0 auto;
-}
-
-.header {
-  margin: 0 auto;
-  margin-top: -20px;
-  text-align: center;
-  font-size: 32px;
-  color: #2a2a3c;
-}
-
-.main_body {
-  display: block;
-  width: 1020px;
-  margin: 20px auto;
-  border: 2px solid #CCC;
-  padding: 14px;
-  border-radius:  7px;
-}
-
-.radio {
-  display: block;
-  height: 60px;
-  line-height: 55px;
-  width: 900px;
-  margin: 30px auto;
-  padding: 10px 0;
-  border: 3px solid #ff9f40;
-  color: #666;
-  border-radius: 8px;
-  background: #eafbff;
-  font-size: 16px;
-  font-weight: bold;
-  text-align: center;
-}
-
-.radio_item {
-  display: inline-block;
-  margin: 0 20px;
-  padding: 0 10px;
-  border-radius: 6px;
-  cursor: pointer; 
-}
-
-.radio_item:hover {
-  background: #daebff
-}
-
-.radio_item.active {
-  background: #ff9f40;
-  font-size: 22px;
-  color:white;
-  cursor: default; 
-}
-
-.lat_long {
-  display: block;
-  width: 800px;
-  margin: 80px auto;
-  margin-bottom: 60px;
-}
-
-.latitude, .longitude {
-  display: block;
-  margin: 20px auto;
-  text-align: center;
-}
-
-.lat_long_label {
-  display: inline-block;
-  width: 180px;
-  height: 40px;
-  text-align: left;
-  font-size: 32px;
-    color: #444;
-  vertical-align: middle;
-  line-height: 45px;
-}
-
-.lat_long input {
-  width: 140px;
-  height: 40px;
-  margin-left: 8px;
-  font-size: 20px;
-  text-align: center;
-}
-
-.lat_long select {
-  width: 60px;
-  height: 40px;
-  margin-left: 16px;
-  font-size: 24px;
-}
-
-.unit {
-  font-size: 24px;
-}
-
-.degree {
-  font-size:32px;
-}
-
-.submit {
-  display: block;
-  width: 80px;
-  height: 40px;
-  padding: 12px 32px;
-  margin: 30px auto;
-  background-color: #e7e7e7;
-  border: none;
-  color: black;
-  text-align: center;
-  text-decoration: none;
-  cursor: pointer;
-  font-size: 20px;
-  line-height: 40px;
-}
-
-.submit:hover {
-  background-color: #c3c3c3;
-}
-
-.err_box {
-  display: none;
-  width: 600px;
-  border: 1px solid #D22;
-  border-radius: 6px;
-  background: #ECC;
-  margin: 40px auto;
-  margin-top: -30px;
-  padding: 20px 40px;
-}
-
-.overlay {
-  display: none;
-  position: fixed;
-  width: 100vw;
-  height: 100vh;
-  top: 0;
-  left: 0;
-  background: #000;
-  opacity: 0.2;
-  z-index: 10;
-  overflow: hidden;
-}
-
-.result_wrapper {
-  display: none;
-  position: fixed;
-  width: 100vw;
-  height: 100vh;
-  top: 0;
-  left: 0;  
-  z-index: 100;
-}
-
-.result_box {
-  display: block;
-  margin: 0 auto;
-  width: 600px;
-  height: 300px;
-  background: #FFF;
-  margin-top: 200px;
-  padding: 20px;
-  border-radius: 10px;
-}
-
-.result_lat, .result_long {
-  display: block;
-  width: 480px;
-  height: 80px;
-  margin: 10px auto;
-  font-size: 32px;
-  line-height: 80px;
-  text-align: center;
-}
-
-.result_close {
-  display: block;
-  text-align: right;
-  font-size: 12px;
-  cursor: pointer;
-  margin-bottom: 45px;
-}
-
-.result_close:hover {
-  text-decoration: underline;
+/*Global ====================================== START*/
+  * {
+    font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
   }
 
-.result_label {
-  display: inline-block;
-  width: 180px;
-  height: 40px;
-  text-align: left;
-  font-size: 32px;
-    color: #444;
-  vertical-align: middle;
-  line-height: 45px;
-}
+  .hidden {
+    display: none;
+  }
 
-.result_value {
-  display: inline-block;
-  width:240px;
-  height: 45px;
-  text-align: left;
-  font-size: 40px;
-  font-weight: bold;
-    color: #222;
-  vertical-align: middle;
-  line-height: 50px; 
-  text-align: right;
-}
+  .wrapper {
+    position: relative;
+  }
 
-.result_unit {
-  font-size: 40px;
-}
+  .main_container {
+    position: relative;
+    margin: 0 auto;
+  }
+
+  .header {
+    margin: 0 auto;
+    margin-top: -20px;
+    text-align: center;
+    font-size: 32px;
+    color: #2a2a3c;
+  }
+
+  .main_body {
+    display: block;
+    width: 1020px;
+    margin: 20px auto;
+    border: 2px solid #CCC;
+    padding: 14px;
+    border-radius:  7px;
+  }
+/*Global ====================================== END*/
+
+/*Form ====================================== START*/
+  .radio {
+    display: block;
+    height: 60px;
+    line-height: 55px;
+    width: 900px;
+    margin: 30px auto;
+    padding: 10px 0;
+    border: 3px solid #ff9f40;
+    color: #666;
+    border-radius: 8px;
+    background: #eafbff;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+  }
+
+  .radio_item {
+    display: inline-block;
+    margin: 0 20px;
+    padding: 0 10px;
+    border-radius: 6px;
+    cursor: pointer; 
+  }
+
+  .radio_item:hover {
+    background: #daebff
+  }
+
+  .radio_item.active {
+    background: #ff9f40;
+    font-size: 22px;
+    color:white;
+    cursor: default; 
+  }
+
+  .lat_long {
+    display: block;
+    width: 800px;
+    margin: 80px auto;
+    margin-bottom: 60px;
+  }
+
+  .latitude, .longitude {
+    display: block;
+    margin: 20px auto;
+    text-align: center;
+  }
+
+  .lat_long_label {
+    display: inline-block;
+    width: 180px;
+    height: 40px;
+    text-align: left;
+    font-size: 32px;
+      color: #444;
+    vertical-align: middle;
+    line-height: 45px;
+  }
+
+  .lat_long input {
+    width: 140px;
+    height: 40px;
+    margin-left: 8px;
+    font-size: 20px;
+    text-align: center;
+  }
+
+  .lat_long select {
+    width: 60px;
+    height: 40px;
+    margin-left: 16px;
+    font-size: 24px;
+  }
+
+  .unit {
+    font-size: 24px;
+  }
+
+  .degree {
+    font-size:32px;
+  }
+/*Form ====================================== END*/
+
+/*Submit ====================================== START*/
+  .submit {
+    display: block;
+    width: 80px;
+    height: 40px;
+    padding: 12px 32px;
+    margin: 30px auto;
+    background-color: #e7e7e7;
+    border: none;
+    color: black;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 20px;
+    line-height: 40px;
+  }
+
+  .submit:hover {
+    background-color: #c3c3c3;
+  }
+
+  .err_box {
+    display: none;
+    width: 600px;
+    border: 1px solid #D22;
+    border-radius: 6px;
+    background: #ECC;
+    margin: 40px auto;
+    margin-top: -30px;
+    padding: 20px 40px;
+  }
+/*Submit ====================================== END*/
+
+/*Result ====================================== START*/
+  .overlay {
+    display: none;
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    background: #000;
+    opacity: 0.2;
+    z-index: 10;
+    overflow: hidden;
+  }
+
+.result_wrapper {
+    display: none;
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;  
+    z-index: 100;
+  }
+
+  .result_box {
+    display: block;
+    margin: 0 auto;
+    width: 600px;
+    height: 300px;
+    background: #FFF;
+    margin-top: 200px;
+    padding: 20px;
+    border-radius: 10px;
+  }
+
+  .result_lat, .result_long {
+    display: block;
+    width: 480px;
+    height: 80px;
+    margin: 10px auto;
+    font-size: 32px;
+    line-height: 80px;
+    text-align: center;
+  }
+
+  .result_close {
+    display: block;
+    text-align: right;
+    font-size: 12px;
+    cursor: pointer;
+    margin-bottom: 45px;
+  }
+
+  .result_close:hover {
+    text-decoration: underline;
+    }
+
+  .result_label {
+    display: inline-block;
+    width: 180px;
+    height: 40px;
+    text-align: left;
+    font-size: 32px;
+      color: #444;
+    vertical-align: middle;
+    line-height: 45px;
+  }
+
+  .result_value {
+    display: inline-block;
+    width:240px;
+    height: 45px;
+    text-align: left;
+    font-size: 40px;
+    font-weight: bold;
+      color: #222;
+    vertical-align: middle;
+    line-height: 50px; 
+    text-align: right;
+  }
+
+  .result_unit {
+    font-size: 40px;
+  }
+/*Result ====================================== END*/
